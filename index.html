@@ -7,9 +7,26 @@
 			<canvas id='canvas' width='500' height='500' style='border:1px solid;'></canvas>
 		</center>
 	</body>
-	<script>
-	window.onload = function() {
-		console.log('asdfasdf');
-	}
+	<script id="vs" type="x-shader/x-vertex">  
+  		//※顶点着色器  
+    	attribute vec3 position;  //位置
+		attribute vec4 color;     //顶点颜色
+		uniform   mat4 mvpMatrix; //矩阵
+		varying   vec4 vColor;    //传递的颜色变量
+		void main(void){  
+			vColor = color;
+		    gl_Position = mvpMatrix * vec4(position, 1.0);  
+		} 
+	</script>  
+	  
+	<script id="fs" type="x-shader/x-fragment">  
+	    // ※片段着色器  
+	    precision mediump float;
+	    varying vec4 vColor;
+	    void main(void){  
+		    gl_FragColor = vColor;  
+		}
 	</script>
+	<script src='./Lib/minMatrix.js' type="text/javascript"></script>
+	<script src='./script/Game.js' type="text/javascript"></script>
 </html>
