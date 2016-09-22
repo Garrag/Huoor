@@ -1,7 +1,7 @@
 window.onload = function() {
 	init()
 }
-
+//111
 function init() {
 	var c = document.getElementById('canvas');
 	var gl = c.getContext('webgl') || c.getContext('experimental-webgl');  
