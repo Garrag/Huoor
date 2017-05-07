@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>优秀的网站-后台管理</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>优秀的网站</h1>
+    <button id="updateGitBtn">后台拉取github代码</button>
+    结果:<div id="result"></div><br>
+  </body>
+
+  <script>
+      $("#updateGitBtn").click(function(){
+        $("#result").html('等待结果...') 
+        $.getJSON("/updateGit", function(result){
+            if (result.code == 0) {
+              $("#result").html('成功: ' + result.msg)  
+            }else {
+              $("#result").html('失败: ' + result.msg) 
+            }
+        });
+      });
+
+      $("#updateGameBtn").click(function(){
+        $("#result2").html('等待结果...') 
+        $.getJSON("/updateGame", function(result){
+            if (result.code == 0) {
+              $("#result2").html('成功: ' + result.msg)  
+            }else {
+              $("#result2").html('失败: ' + result.msg) 
+            }
+        });
+      });
+  </script>
+
+</html>
