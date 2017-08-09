@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/admin', function(req, res, next) {
-  res.render('index');
+  res.render('admin');
 });
 
 //拉取github代码
