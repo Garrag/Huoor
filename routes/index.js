@@ -14,7 +14,7 @@ router.get('/admin', function (req, res, next) {
 //拉取github代码
 router.all('/update', function (req, res, next) {
 	// console.log('start --------------updateGit------------------')
-	var cmd = 'cd /Huoor && git pull';   //'cd ~ && ls' 
+	var cmd = 'cd ~/Huoor && git pull';   //'cd ~ && ls' 
 	exec(cmd, function (err, stdout, stderr) {
 		if (err) {
 			res.jsonp({ code: 1, msg: stderr })
