@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var exec = require('child_process').exec;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -12,7 +13,7 @@ router.get('/admin', function (req, res, next) {
 
 //拉取github代码
 router.all('/update', function (req, res, next) {
-	console.log('start --------------updateGit------------------')
+	// console.log('start --------------updateGit------------------')
 	var cmd = 'cd /Huoor && git pull';   //'cd ~ && ls' 
 	exec(cmd, function (err, stdout, stderr) {
 		if (err) {
@@ -22,7 +23,7 @@ router.all('/update', function (req, res, next) {
 		} else {
 			res.jsonp({ code: 0, msg: stdout })
 			console.log(stdout)
-			console.log('end --------------updateGit------------------')
+			// console.log('end --------------updateGit------------------')
 		}
 	})
 });
