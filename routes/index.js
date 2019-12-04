@@ -7,10 +7,6 @@ router.get('/', function (req, res, next) {
 	res.render('index');
 });
 
-router.get('/admin', function (req, res, next) {
-	res.render('admin');
-});
-
 //拉取github代码
 router.all('/update', function (req, res, next) {
 	// console.log('start --------------updateGit------------------')
